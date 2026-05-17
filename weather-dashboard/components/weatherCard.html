@@ -1,0 +1,169 @@
+<style>
+    .current-weather {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .current-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .city-info h2 {
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+    .date-time {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+    .current-weather-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+    .temp-block {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .temp {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+    .temp-unit {
+        font-size: 1.5rem;
+        vertical-align: top;
+    }
+    .weather-icon-large {
+        width: 100px;
+        height: 100px;
+        filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+    }
+    .weather-desc {
+        font-size: 1.2rem;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+    .weather-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .detail-item {
+        background: var(--bg-glass);
+        padding: 15px;
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .detail-icon {
+        font-size: 1.5rem;
+        color: var(--accent-color);
+        width: 30px;
+        text-align: center;
+    }
+    .detail-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .detail-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .detail-value {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    .save-btn {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-glass);
+        padding: 8px 15px;
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-main);
+    }
+    .save-btn:hover {
+        background: var(--accent-color);
+        color: white;
+    }
+    .save-btn.saved {
+        color: var(--danger-color);
+    }
+</style>
+
+<div class="glass-panel current-weather fade-in">
+    <div class="current-header">
+        <div class="city-info">
+            <h2 id="cw-city">City Name</h2>
+            <div class="date-time" id="cw-date">Date & Time</div>
+        </div>
+        <button id="save-city-btn" class="save-btn pulse-hover">
+            <i class="far fa-heart" id="save-icon"></i> <span id="save-text">Save</span>
+        </button>
+    </div>
+
+    <div class="current-weather-main">
+        <div class="temp-block">
+            <img src="" alt="Weather icon" id="cw-icon" class="weather-icon-large floating-icon hidden">
+            <div>
+                <div class="temp"><span id="cw-temp">--</span><span class="temp-unit">°C</span></div>
+                <div class="weather-desc" id="cw-desc">--</div>
+                <div style="font-size: 0.9rem; margin-top: 5px;">Feels like: <span id="cw-feels-like">--</span>°C</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="weather-details">
+        <div class="detail-item">
+            <div class="detail-icon"><i class="fas fa-droplet"></i></div>
+            <div class="detail-info">
+                <span class="detail-label">Humidity</span>
+                <span class="detail-value" id="cw-humidity">--%</span>
+            </div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-icon"><i class="fas fa-wind"></i></div>
+            <div class="detail-info">
+                <span class="detail-label">Wind</span>
+                <span class="detail-value" id="cw-wind">-- km/h</span>
+            </div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-icon"><i class="fas fa-gauge"></i></div>
+            <div class="detail-info">
+                <span class="detail-label">Pressure</span>
+                <span class="detail-value" id="cw-pressure">-- hPa</span>
+            </div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-icon"><i class="fas fa-sun"></i></div>
+            <div class="detail-info">
+                <span class="detail-label">UV Index / AQI</span>
+                <span class="detail-value" id="cw-aqi">--</span>
+            </div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-icon"><i class="fas fa-arrow-up-from-horizon"></i></div>
+            <div class="detail-info">
+                <span class="detail-label">Sunrise</span>
+                <span class="detail-value" id="cw-sunrise">--:--</span>
+            </div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-icon"><i class="fas fa-arrow-down-to-horizon"></i></div>
+            <div class="detail-info">
+                <span class="detail-label">Sunset</span>
+                <span class="detail-value" id="cw-sunset">--:--</span>
+            </div>
+        </div>
+    </div>
+</div>

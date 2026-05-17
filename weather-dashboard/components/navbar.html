@@ -1,0 +1,131 @@
+<style>
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-glass);
+    }
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .search-box {
+        display: flex;
+        align-items: center;
+        background: var(--bg-glass-strong);
+        border-radius: var(--radius-full);
+        padding: 5px 15px;
+        border: 1px solid var(--border-glass);
+        transition: box-shadow var(--transition-fast);
+    }
+    .search-box:focus-within {
+        box-shadow: var(--shadow-glow);
+        border-color: var(--accent-color);
+    }
+    .search-box input {
+        border: none;
+        background: transparent;
+        padding: 10px;
+        font-size: 1rem;
+        width: 250px;
+        color: var(--text-main);
+    }
+    .icon-btn {
+        background: transparent;
+        color: var(--text-muted);
+        font-size: 1.2rem;
+        padding: 8px;
+        border-radius: 50%;
+    }
+    .icon-btn:hover {
+        color: var(--accent-color);
+        background: var(--bg-glass);
+    }
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .favorites-dropdown {
+        position: relative;
+    }
+    .favorites-list {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 10px;
+        background: var(--bg-glass-strong);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-md);
+        min-width: 200px;
+        box-shadow: var(--shadow-lg);
+        display: none;
+        z-index: 100;
+    }
+    .favorites-list.show {
+        display: block;
+    }
+    .favorite-item {
+        padding: 10px 15px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border-glass);
+    }
+    .favorite-item:last-child {
+        border-bottom: none;
+    }
+    .favorite-item:hover {
+        background: var(--bg-glass-hover);
+    }
+    .fav-delete {
+        color: var(--danger-color);
+    }
+</style>
+
+<nav class="navbar">
+    <div class="brand">
+        <i class="fas fa-cloud-sun-rain"></i>
+        <span>SmartWeather</span>
+    </div>
+    
+    <div class="search-container">
+        <form id="search-form" class="search-box">
+            <i class="fas fa-search" style="color: var(--text-muted)"></i>
+            <input type="text" id="search-input" placeholder="Search for a city..." autocomplete="off">
+            <button type="button" id="voice-btn" class="icon-btn" title="Voice Search">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </form>
+        <button id="location-btn" class="icon-btn" title="Use current location">
+            <i class="fas fa-location-crosshairs"></i>
+        </button>
+    </div>
+
+    <div class="nav-actions">
+        <div class="favorites-dropdown">
+            <button id="favorites-btn" class="icon-btn" title="Saved Cities">
+                <i class="fas fa-heart"></i>
+            </button>
+            <div id="favorites-list" class="favorites-list">
+                <!-- Populated by JS -->
+                <div style="padding: 10px; text-align: center; color: var(--text-muted);">No saved cities</div>
+            </div>
+        </div>
+        <button id="theme-toggle" class="icon-btn" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+</nav>

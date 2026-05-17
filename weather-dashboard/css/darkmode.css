@@ -1,0 +1,26 @@
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --text-main: #f8fafc;
+    --text-muted: #cbd5e1;
+    --bg-glass: rgba(15, 23, 42, 0.7);
+    --bg-glass-strong: rgba(15, 23, 42, 0.85);
+    --bg-glass-hover: rgba(15, 23, 42, 0.95);
+    --border-glass: rgba(255, 255, 255, 0.1);
+    
+    /* Default dark background if no weather class overrides */
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+}
+
+/* Adjust components for dark mode */
+[data-theme="dark"] .glass-container,
+[data-theme="dark"] .glass-panel {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] input {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] input::placeholder {
+    color: var(--text-muted);
+}

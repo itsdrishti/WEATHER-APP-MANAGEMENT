@@ -1,0 +1,12 @@
+{
+  "name": "smart-weather-dashboard",
+  "version": "1.0.0",
+  "description": "Modern Weather Forecast Dashboard with glassmorphism UI",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": ["weather", "dashboard", "openweathermap", "vanilla-js"],
+  "author": "",
+  "license": "ISC"
+}
